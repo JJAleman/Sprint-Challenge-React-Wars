@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PeopleCard from "./PeopleCard";
 import axios from "axios";
+import './StarWars.css';
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -19,13 +20,13 @@ const People = () => {
   }, []);
 
   return (
-    <div>
+    <div className="people">
       {people.map(person => {
         return (
           <PeopleCard
             key={person.id}
             name={person.name}
-            dob={person.birth_year}
+            height={person.height}
             gender={person.gender}
           />
         );
