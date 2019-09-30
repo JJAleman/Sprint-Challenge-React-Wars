@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import './App.css';
 
 const App = () => {
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://swapi.co/api/people/`
+      )
+      .then(res => {
+        // const otherNasa = res.data;
+        console.log(res);
+        // setNasa(otherNasa);
+      })
+      .catch(error => {
+        console.log("The data was not returned", error);
+      });
+  }, []);
+
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
